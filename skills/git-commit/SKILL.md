@@ -27,6 +27,9 @@ You must execute the following sequential workflow whenever a commit task is ini
 2. Present the drafted structure to the user for validation, highlighting the assigned commit type and scope.
 
 ### Step 3: Terminal Command Delivery
-1. Upon user confirmation, output the explicit, single-line terminal command using multiple `-m` flags as specified in the formatting policy.
+1. Upon user confirmation, output the explicit, single-line terminal command using at most three `-m` flags as specified in the formatting policy.
+   * **CRITICAL:** Use at most one `-m` flag per structural part (Subject, Body, and Footer).
+   * **NEVER** use multiple `-m` flags for individual lines or bullet points within the body. Doing so causes Git to insert unwanted blank lines.
+   * **CRITICAL:** For multi-line body or footer content, you must use a single double-quoted string containing **literal newlines (actual line breaks)** within the command. Do NOT use escape sequences like `\n` (which shell command execution will commit literally) or additional `-m` flags.
 
 Process each step in order and complete the current step before moving to the next.

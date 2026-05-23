@@ -35,14 +35,20 @@ When drafting, validating, or executing Git commits, you must strictly adhere to
    * The subject line (first line) must not exceed 72 characters, ideally 50 characters or less.
    * **Every single line within the commit message body must also be wrapped at 72 characters or less.** If an explanation runs longer, you must manually insert line breaks to keep each line under the 72-character threshold.
 
-3. **Part Separation via Multiple `-m` Flags**:
-   * Use one `-m` flag per structural part: the subject line, the body, and the footer. Use at most three `-m` flags in total.
-   * All body content — including bullet lists and multi-sentence explanations — must be placed in a single `-m` value. Do not split body content across multiple `-m` flags; doing so inserts unwanted blank lines between items.
+3. **Part Separation via Multiple `-m` Flags (At Most Three)**:
+   * Use at most one `-m` flag per structural part: the subject line, the body, and the footer. Use at most three `-m` flags in total.
+   * **NEVER split body lines or bullet lists across multiple `-m` flags.** Doing so inserts unwanted blank lines because Git automatically treats each `-m` flag as a separate paragraph.
+   * **DO NOT use escape sequences like `\n` in double quotes.** Shells like bash will treat `\n` as literal backslash-n characters and commit them as-is.
+   * **Use literal newlines (actual line breaks)** inside double quotes to write multi-line bodies or footers.
    * *Example:*
 
      ```bash
-     git commit -m "feat(auth): add jwt authentication" -m $'Validate tokens on every incoming request.\nSecure endpoints by rejecting expired credentials.\n- Added middleware for token validation\n- Removed legacy session handling' -m "BREAKING CHANGE: The old session-based cookie auth is deprecated."
+     git commit -m "feat(auth): add jwt authentication" -m "Validate tokens on every incoming request.
+     Secure endpoints by rejecting expired credentials.
+     - Added middleware for token validation
+     - Removed legacy session handling" -m "BREAKING CHANGE: The old session-based cookie auth is deprecated."
      ```
+
 
 4. **Co-authored-by Restriction**:
    * **Do not include any `Co-authored-by:` trailers** in the commit message or footer unless the user explicitly requests you to add credit for a co-author.
