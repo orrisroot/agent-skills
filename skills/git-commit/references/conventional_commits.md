@@ -58,3 +58,20 @@ When drafting, validating, or executing Git commits, you must strictly adhere to
 
 6. **Imperative Mood**:
    * Always use the imperative mood in the description (e.g., use "add", "fix", "change" instead of "added", "fixes", "changed").
+
+## Validation Checklist
+
+When validating a draft commit message, check **every** item below. If any check fails, fix the issue and re-validate until all pass.
+
+| # | Check | Rule |
+|---|-------|------|
+| 1 | **Type valid** | The type must be one of: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert. |
+| 2 | **Language** | The message must be in English (unless the user explicitly requested another language). |
+| 3 | **Lowercase** | The description must be lowercase. |
+| 4 | **No period** | The description must NOT end with a period. |
+| 5 | **Imperative mood** | Use imperative mood (e.g., "add" not "added", "adds"). |
+| 6 | **Subject ≤ 72 chars** | The subject line must not exceed 72 characters. |
+| 7 | **Body lines ≤ 72 chars** | **Every line in the body must be wrapped at 72 characters or less.** |
+| 8 | **At most 3 `-m` flags** | Use at most one `-m` per structural part; do NOT split body lines across multiple `-m` flags. |
+| 9 | **Literal newlines** | Multi-line body/footer must use literal newlines inside double quotes, NOT `\n` escape sequences. |
+| 10 | **No Co-authored-by** | Do not include `Co-authored-by:` unless explicitly requested. |
