@@ -14,3 +14,5 @@ It carries its own instructions and optional bundled resources.
 ## Included skills
 
 - `git-commit`: analyzes staged changes, gathers contextual intent, and generates structurally compliant commit messages with executable terminal commands.
+- `review-debate`: facilitates a multi-perspective code review debate between Security/Performance and Clean Architecture/Readability experts, synthesized by a Tech Lead.
+
