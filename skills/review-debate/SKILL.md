@@ -18,6 +18,8 @@ Before initiating the review process:
    - The contents of the active/open file.
    - The changes in the current Git repository (`git diff` or `git diff --cached`).
 2. If the target is ambiguous, ask the user to clarify which file or code snippet they want reviewed.
+3. **Contextual Discovery (Autonomous)**: If the provided code references external functions, types, or configuration files not immediately visible, proactively use available tools (e.g., file reading, codebase search) to gather this surrounding context before proceeding.
+4. **Determine User Intent**: Note if the user implies any specific requirements (e.g., "This is a quick prototype" vs "This is for a critical production service").
 
 ## Core Reviewers Definition
 The agent must split its cognitive process into three distinct roles sequentially:
@@ -30,8 +32,8 @@ The agent must split its cognitive process into three distinct roles sequentiall
    - **Focus:** Code readability, maintainability, clean architecture, adherence to design patterns, naming conventions, and documentation.
    - **Tone:** Constructive, structured, and developer-experience-oriented.
 
-3. **Tech Lead (Moderator):**
-   - **Focus:** Synthesizing both perspectives, resolving conflicts, determining the final consensus, and formulating the final patch.
+3. **Tech Lead (Moderator)**:
+   - **Focus:** Synthesizing both perspectives, resolving conflicts, weighing trade-offs based on the user's specific context/intent (e.g., speed-to-market vs. long-term robustness), determining the final consensus, and formulating the final patch.
 
 ## Execution Workflow
 

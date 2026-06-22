@@ -11,6 +11,11 @@ This skill defines an interactive, multi-perspective workflow for refactoring la
 
 ## Operational Workflow
 
+### Phase 0: Scope & Target Definition
+Before analyzing the architecture, define the scope of the refactoring:
+- Ask the user to specify the target component, directory, or feature.
+- Confirm any immediate business constraints (e.g., tight deadlines, specific performance targets).
+
 ### Phase 1: Architectural & Security Discovery
 Perform a deep analysis of the target codebase. Map dependencies and identify design smells:
 - **Structural Issues**: High coupling, low cohesion, circular dependencies, leaky abstractions, domain logic leakage into presentation or infrastructure layers.
@@ -38,7 +43,7 @@ Simulate a debate between the following specialized roles to evaluate trade-offs
 2. **Component & Interface Expert (Componist)**:
    - *Focus*: Loose coupling, clean separation of concerns, high reusability, clear interface/API definitions, Dependency Inversion (DIP), and shielding domain logic from infrastructure details.
 3. **Software Architect & Tech Lead (Moderator)**:
-   - *Focus*: Resolving conflicts, balancing strict design goals against performance/complexity costs, and defining a practical, incremental refactoring path.
+   - *Focus*: Resolving conflicts, balancing strict design goals against performance/complexity costs, factoring in business constraints (e.g., project deadlines, available resources), and defining a practical, incremental refactoring path.
 
 Format the debate:
 ```text
